@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<cascade>
+  <stageType>BOOST</stageType>
+  <featureType>HAAR</featureType>
+  <height>40</height>
+  <width>40</width>
+  <stageParams>
+    <boostType>GAB</boostType>
+    <minHitRate>9.9500000476837158e-01</minHitRate>
+    <maxFalseAlarm>5.0000000000000000e-01</maxFalseAlarm>
+    <weightTrimRate>9.4999999999999996e-01</weightTrimRate>
+    <maxDepth>1</maxDepth>
+    <maxWeakCount>100</maxWeakCount></stageParams>
+  <featureParams>
+    <maxCatCount>0</maxCatCount>
+    <featSize>1</featSize>
+    <mode>BASIC</mode></featureParams>
+  <stageNum>2</stageNum>
+  <stages>
+    <!-- stage 0 -->
+    <_>
+      <maxWeakCount>2</maxWeakCount>
+      <stageThreshold>-1.9456875324249268e+00</stageThreshold>
+      <weakClassifiers>
+        <_>
+          <internalNodes>
+            0 -1 2 -2.6729756593704224e-01</internalNodes>
+          <leafValues>
+            1. -9.9800199270248413e-01</leafValues></_>
+        <_>
+          <internalNodes>
+            0 -1 1 -6.9057539803907275e-05</internalNodes>
+          <leafValues>
+            -1. -9.4768553972244263e-01</leafValues></_></weakClassifiers></_>
+    <!-- stage 1 -->
+    <_>
+      <maxWeakCount>3</maxWeakCount>
+      <stageThreshold>-1.4661672115325928e+00</stageThreshold>
+      <weakClassifiers>
+        <_>
+          <internalNodes>
+            0 -1 3 -1.2698023021221161e-01</internalNodes>
+          <leafValues>
+            1. -9.9600797891616821e-01</leafValues></_>
+        <_>
+          <internalNodes>
+            0 -1 0 -2.2313842177391052e-01</internalNodes>
+          <leafValues>
+            1. -9.8544609546661377e-01</leafValues></_>
+        <_>
+          <internalNodes>
+            0 -1 1 2.8683329001069069e-03</internalNodes>
+          <leafValues>
+            5.1528680324554443e-01 -9.5691287517547607e-01</leafValues></_></weakClassifiers></_></stages>
+  <features>
+    <_>
+      <rects>
+        <_>
+          0 0 9 38 -1.</_>
+        <_>
+          0 19 9 19 2.</_></rects>
+      <tilted>0</tilted></_>
+    <_>
+      <rects>
+        <_>
+          0 0 40 39 -1.</_>
+        <_>
+          20 0 20 39 2.</_></rects>
+      <tilted>0</tilted></_>
+    <_>
+      <rects>
+        <_>
+          1 0 39 20 -1.</_>
+        <_>
+          1 10 39 10 2.</_></rects>
+      <tilted>0</tilted></_>
+    <_>
+      <rects>
+        <_>
+          34 1 5 39 -1.</_>
+        <_>
+          34 14 5 13 3.</_></rects>
+      <tilted>0</tilted></_></features></cascade>
+</opencv_storage>

@@ -1,0 +1,10 @@
+./pos/custom/nbg/rw-1100-nbg.jpg 1 0 0 2 3
+./pos/custom/nbg/rw-1424-nbg.jpg 1 2 3 271 128
+./pos/custom/nbg/rw-1761-nbg.jpg 1 3 5 409 216
+./pos/custom/nbg/rw-200-nbg.jpg 1 1 0 102 52
+./pos/custom/nbg/rw-30-nbg.jpg 1 1 3 103 44
+./pos/custom/nbg/rw-300-nbg.jpg 1 3 2 127 58
+./pos/custom/nbg/rw-450-nbg.jpg 1 4 3 109 59
+./pos/custom/nbg/rw-5-nbg.jpg 1 3 3 95 43
+./pos/custom/nbg/rw-700-nbg.jpg 1 3 2 150 68
+./pos/custom/nbg/rw-75-nbg.jpg 1 2 1 113 55
