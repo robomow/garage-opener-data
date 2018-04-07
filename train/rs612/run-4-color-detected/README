@@ -1,0 +1,21 @@
+This run is a slight variation from run-3.  Changes include
+
+1. The pos samples was cleaned up.  Places where we found color detector was not properly identifying the robomow.  These samples were removed.
+2. The number of stages/cascades was increased to 18
+
+--------------------------
+
+In this run we are using pos images obtained by running the color detector python script on a video file that recorded the robomow running through the yard.
+
+Observations include:
+
+1. The resolution is 400x600 in color
+2. The python script used a color identified in the robomow (green) to be the centerpoint, then extrapolated a rectangle from that point that would roughly be the size of the robomow.i
+3. hen writes to a annotation file those coordinates as positive position of the robomow in that frame and the frame itself to a file.
+3. The annontation file is used with opencv_samples to build the vec file for haar training.
+
+Results:
+1. The model generated from this approach significantly outperformed all other approaches.
+2. Reasons why may include the scale of the positive image is never distorted.
+
+The conclusion I got to was generated images just did not work nearly was well as the actual images.
