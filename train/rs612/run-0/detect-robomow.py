@@ -8,7 +8,7 @@ import imutils
 import cv2
 import urllib #for reading image from URL
 
-
+# the model we are testing
 rm_cascade = cv2.CascadeClassifier('model/cascade.xml')
 
 
@@ -18,6 +18,7 @@ ap.add_argument("-v", "--video",
     help="path to the (optional) video file")
 ap.add_argument("-b", "--buffer", type=int, default=64,
     help="max buffer size")
+ap.add_argument("-r", "--record", action='store_true', help="record run")
 args = vars(ap.parse_args())
  
 # define the lower and upper boundaries of the colors in the HSV color space
@@ -30,6 +31,9 @@ upper = {'red':(255,97,66),'green':(156,141,126),'blue':(255,255,27)}
 # define standard colors for circle around the object
 colors = {'red':(0,0,255), 'green':(0,255,0), 'blue':(255,0,0), 'yellow':(0, 255, 217), 'orange':(0,140,255)}
 
+#
+# The driveway
+#
 def drawDriveway(frame):
     # bottom line
     cv2.line(frame,(00,500),(70,470),(0,255,0),2)
@@ -65,22 +69,23 @@ else:
 frame_width=800
 frame_height=600
 #out = cv2.VideoWriter('detect-robomow.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
+out = cv2.VideoWriter('detect-robomow.avi',cv2.VideoWriter_fourcc('X','V','I','D'), 10, (frame_width,frame_height))
 
 # keep looping
 imgFound = 0
+record=False
+if args.get("record"):
+    record=True
+
 while True:
+
     # grab the current frame
     (grabbed, frame) = camera.read()
+
     # if we are viewing a video and we did not grab a frame,
     # then we have reached the end of the video
     if args.get("video") and not grabbed:
         break
-
-    #IP webcam image stream 
-    #URL = 'http://10.254.254.102:8080/shot.jpg'
-    #urllib.urlretrieve(URL, 'shot1.jpg')
-#    frame = cv2.imread('pos-800x600/frame2552.jpg')
-
 
     # resize the frame, blur it, and convert it to the HSV
     # color space
@@ -88,7 +93,7 @@ while True:
 
     drawDriveway(frame)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    watches = rm_cascade.detectMultiScale(gray,minNeighbors=10,minSize=(125,125),maxSize=(150,150))
+    watches = rm_cascade.detectMultiScale(gray,minNeighbors=10,minSize=(150,150),maxSize=(200,200))
     i = 1
     for (x,y,w,h) in watches:
         if i == 1:
@@ -99,7 +104,8 @@ while True:
 		
     # show the frame to our screen
     cv2.imshow("Frame", frame)
-    #out.write(frame)
+    if record == True:
+        out.write(frame)
     
     key = cv2.waitKey(1) & 0xFF
     # if the 'q' key is pressed, stop the loop
@@ -107,6 +113,7 @@ while True:
         break
  
 # cleanup the camera and close any open windows
-#out.release()
+if record==True:
+   out.release()
 camera.release()
 cv2.destroyAllWindows()
